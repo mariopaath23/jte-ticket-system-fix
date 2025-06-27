@@ -6,6 +6,7 @@ import { FormEventHandler } from 'react';
 import DeleteUser from '@/components/delete-user';
 import HeadingSmall from '@/components/heading-small';
 import InputError from '@/components/input-error';
+import { ProfileInfo } from '@/components/profile-info';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -22,14 +23,16 @@ const breadcrumbs: BreadcrumbItem[] = [
 type ProfileForm = {
     name: string;
     email: string;
+    nim_nip: string;
 };
 
 export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status?: string }) {
     const { auth } = usePage<SharedData>().props;
 
-    const { data, setData, patch, errors, processing, recentlySuccessful } = useForm<Required<ProfileForm>>({
+    const { data, setData, patch, errors, processing, recentlySuccessful } = useForm<ProfileForm>({
         name: auth.user.name,
         email: auth.user.email,
+        nim_nip: (auth.user as any).nim_nip || '',
     });
 
     const submit: FormEventHandler = (e) => {
@@ -64,7 +67,28 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
 
                             <InputError className="mt-2" message={errors.name} />
                         </div>
+                    </div>
 
+                    {/* Profile Edit Form */}
+                    <div>
+                        <HeadingSmall title="Edit Profile" description="Update your profile information" />
+
+                        <form onSubmit={submit} className="mt-6 space-y-6">
+                            <div className="grid gap-2">
+                                <Label htmlFor="name">Full Name</Label>
+
+                                <Input
+                                    id="name"
+                                    className="mt-1 block w-full"
+                                    value={data.name}
+                                    onChange={(e) => setData('name', e.target.value)}
+                                    required
+                                    autoComplete="name"
+                                    placeholder="Enter your full name"
+                                />
+
+                                <InputError className="mt-2" message={errors.name} />
+                            </div>
                         <div className="grid gap-2">
                             <Label htmlFor="email">Alamat Email</Label>
 
