@@ -2,11 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\InfrastructureController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return Inertia::render('landing');
 })->name('home');
+
+Route::get('/status', function () {
+    return Inertia::render('status/status');
+})->name('status');
+
+Route::get('/api/infrastructures', [InfrastructureController::class, 'getForStatus']);
 
 // Simple authentication helper for testing (remove in production)
 Route::get('/auth-test', function () {

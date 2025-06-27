@@ -3,7 +3,7 @@ import { Head, Link, usePage, router } from '@inertiajs/react';
 
 import NavbarHome from "@/components/Navbar";
 import { CarouselHome } from "@/components/Carousel";
-import { AccordionHome } from "@/components/accordion";
+import { AccordionHome } from "@/components/Accordion";
 import TeamBento from "@/components/TeamBento";
 import TechStacks from "@/components/TechStacks";
 import FooterHome from "@/components/Footer";
