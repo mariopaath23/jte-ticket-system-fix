@@ -2,10 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\InfrastructureController;
 
 Route::get('/', function () {
     return Inertia::render('landing');
 })->name('home');
+
+Route::get('/status', function () {
+    return Inertia::render('status/status');
+})->name('status');
+
+Route::get('/api/infrastructures', [InfrastructureController::class, 'getForStatus']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
