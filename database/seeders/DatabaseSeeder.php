@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             InfrastructureSeeder::class,
+            RoomSeeder::class,
+            InventorySeeder::class,
         ]);
     }
 }
