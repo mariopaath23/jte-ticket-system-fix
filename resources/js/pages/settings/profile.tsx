@@ -54,7 +54,6 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                     <form onSubmit={submit} className="space-y-6">
                         <div className="grid gap-2">
                             <Label htmlFor="name">Nama</Label>
-
                             <Input
                                 id="name"
                                 className="mt-1 block w-full"
@@ -64,34 +63,10 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                 autoComplete="name"
                                 placeholder="Nama lengkap"
                             />
-
                             <InputError className="mt-2" message={errors.name} />
                         </div>
-                    </div>
-
-                    {/* Profile Edit Form */}
-                    <div>
-                        <HeadingSmall title="Edit Profile" description="Update your profile information" />
-
-                        <form onSubmit={submit} className="mt-6 space-y-6">
-                            <div className="grid gap-2">
-                                <Label htmlFor="name">Full Name</Label>
-
-                                <Input
-                                    id="name"
-                                    className="mt-1 block w-full"
-                                    value={data.name}
-                                    onChange={(e) => setData('name', e.target.value)}
-                                    required
-                                    autoComplete="name"
-                                    placeholder="Enter your full name"
-                                />
-
-                                <InputError className="mt-2" message={errors.name} />
-                            </div>
                         <div className="grid gap-2">
                             <Label htmlFor="email">Alamat Email</Label>
-
                             <Input
                                 id="email"
                                 type="email"
@@ -102,10 +77,8 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                 autoComplete="username"
                                 placeholder="Alamat email"
                             />
-
                             <InputError className="mt-2" message={errors.email} />
                         </div>
-
                         {mustVerifyEmail && auth.user.email_verified_at === null && (
                             <div>
                                 <p className="-mt-4 text-sm text-muted-foreground">
@@ -119,7 +92,6 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                         Klik di sini untuk mengirim ulang email verifikasi.
                                     </Link>
                                 </p>
-
                                 {status === 'verification-link-sent' && (
                                     <div className="mt-2 text-sm font-medium text-green-600">
                                         Tautan verifikasi baru telah dikirim ke alamat email Anda.
@@ -127,10 +99,8 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                 )}
                             </div>
                         )}
-
                         <div className="flex items-center gap-4">
                             <Button disabled={processing}>Simpan</Button>
-
                             <Transition
                                 show={recentlySuccessful}
                                 enter="transition ease-in-out"
