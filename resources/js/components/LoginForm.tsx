@@ -44,13 +44,13 @@ export function LoginForm() {
 
       <form onSubmit={handleLogin} className="flex flex-col gap-4">
         <div>
-          <Label className="text-sm" htmlFor="email">
+          <Label className="text-sm dark:text-gray-200" htmlFor="email">
             Email UNSRAT
           </Label>
           <Input
             id="email"
             type="email"
-            className="mt-3 px-4 w-full h-[48px]"
+            className="mt-3 px-4 w-full h-[48px] bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
             placeholder="Masukkan email UNSRAT anda (@unsrat.ac.id / @student.unsrat.ac.id)"
             value={data.email}
             onChange={(e) => setData("email", e.target.value)}
@@ -58,18 +58,18 @@ export function LoginForm() {
             autoFocus
             autoComplete="email"
           />
-          <InputError message={errors.email} />
+          <InputError message={errors.email} className="dark:text-red-400" />
         </div>
 
         <div>
-          <Label className="text-sm" htmlFor="password">
+          <Label className="text-sm dark:text-gray-200" htmlFor="password">
             Kata Sandi
           </Label>
           <div className="flex w-full h-[48px] mt-3 items-center">
             <Input
               id="password"
               type={passwordVisibility ? "text" : "password"}
-              className="px-4"
+              className="px-4 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
               placeholder="Masukkan password"
               value={data.password}
               onChange={(e) => setData("password", e.target.value)}
@@ -81,16 +81,17 @@ export function LoginForm() {
               onClick={togglePasswordVisibility}
               variant={"outline"}
               disabled={processing}
+              className="ml-2 dark:border-gray-700 dark:text-gray-200"
             >
               {passwordVisibility ? <EyeOff /> : <Eye />}
             </Button>
           </div>
-          <InputError message={errors.password} />
+          <InputError message={errors.password} className="dark:text-red-400" />
 
           <Button
             type="submit"
             size={"lg"}
-            className="w-full mt-6"
+            className="w-full mt-6 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
             disabled={processing}
           >
             {processing ? "Sedang masuk..." : "Masuk"}
