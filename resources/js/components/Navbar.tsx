@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Login from "@/components/Login";
 import Register from "@/components/Register";
+import AppearanceToggleDropdown from "@/components/appearance-dropdown";
 import { router } from "@inertiajs/react";
 
 export default function NavbarHome() {
@@ -24,7 +25,7 @@ export default function NavbarHome() {
     <nav className="bg-[#F9F6EE] dark:bg-[#1A1A1A] py-4 px-6">
         <div className="container mx-auto flex justify-between items-center">
           <a href="#" className="text-xl font-bold text-black dark:text-white">JTE Ticketing System</a>
-          <ul className="flex space-x-6">
+          <ul className="flex space-x-6 items-center">
             <li>
               <Login />
             </li>
@@ -32,29 +33,7 @@ export default function NavbarHome() {
               <Register />
             </li>
             <li>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline">I'm a Dev</Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
-                <DropdownMenuLabel>Dev Menu</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                <DropdownMenuItem onMouseDown={() => router.visit("/")}>
-                    Take me to /Home
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onMouseDown={() => router.visit("/status")}>
-                    Take me to /Status
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onMouseDown={() => router.visit("/student/dashboard")}>
-                    Take me to /studentdashboard
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onMouseDown={() => router.visit("/admin/dashboard")}>
-                    Take me to /admindashboard
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-              </DropdownMenu>
+              <AppearanceToggleDropdown />
             </li>
           </ul>
         </div>
