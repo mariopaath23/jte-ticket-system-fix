@@ -170,4 +170,77 @@ class CatalogController extends Controller
             'inventory' => $inventory,
         ]);
     }
+
+    /**
+     * Show form to create a new room
+     */
+    public function createRoom()
+    {
+        return Inertia::render('catalog/room-create');
+    }
+
+    /**
+     * Store a new room
+     */
+    public function storeRoom(Request $request)
+    {
+        $validated = $request->validate([
+            'room_id' => 'required|string|unique:rooms,room_id',
+            'name' => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'status' => 'required|string',
+            'capacity' => 'required|integer',
+            'location' => 'required|string',
+            'type' => 'required|string',
+            'furniture_available' => 'boolean',
+            'display_available' => 'boolean',
+            'audio_available' => 'boolean',
+            'ac_available' => 'boolean',
+        ]);
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('rooms', 'public');
+            $validated['image_url'] = '/storage/' . $path;
+        }
+        Room::create($validated);
+        return redirect()->route('catalog.rooms')->with('success', 'Room created successfully.');
+    }
+
+    /**
+     * Show form to create a new inventory item
+     */
+    public function createInventory()
+    {
+        $rooms = Room::all(['room_id', 'name']);
+        return Inertia::render('catalog/inventory-create', [
+            'rooms' => $rooms
+        ]);
+    }
+
+    /**
+     * Store a new inventory item
+     */
+    public function storeInventory(Request $request)
+    {
+        $validated = $request->validate([
+            'item_id' => 'required|string|unique:inventories,item_id',
+            'name' => 'required|string',
+            'description' => 'nullable|string',
+            'category' => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'status' => 'required|string',
+            'location' => 'nullable|string',
+            'room_id' => 'nullable|string|exists:rooms,room_id',
+            'image_url' => 'nullable|string',
+            'purchase_price' => 'nullable|numeric',
+            'purchase_date' => 'nullable|date',
+            'supplier' => 'nullable|string',
+            'serial_number' => 'nullable|string',
+        ]);
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('inventories', 'public');
+            $validated['image_url'] = '/storage/' . $path;
+        }
+        Inventory::create($validated);
+        return redirect()->route('catalog.inventory')->with('success', 'Inventory item created successfully.');
+    }
 }

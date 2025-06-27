@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             InfrastructureSeeder::class,
             RoomSeeder::class,
             InventorySeeder::class,
+            BorrowingSeeder::class,
         ]);
     }
 }

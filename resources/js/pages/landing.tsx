@@ -16,7 +16,7 @@ export default function Welcome() {
 
     return (
         <>
-            <Head title="Welcome">
+            <Head title="Selamat Datang">
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             </Head>
@@ -47,25 +47,25 @@ export default function Welcome() {
                     <CarouselHome />
                 </div>
                 <div className="w-full sm:w-1/2">
-                    <h2 className="text-4xl font-bold mb-4">FAQ</h2>
+                    <h2 className="text-4xl font-bold mb-4">Pertanyaan Umum</h2>
                     <AccordionHome />
                 </div>
                 </div>
             </div>
 
             <div className="bg-[#F9F6EE] dark:bg-[#1A1A1A] min-h-screen flex flex-col items-center justify-center">
-                <h1 className="text-3xl font-bold text-left mb-6 sm:text-center">Meet The{" "}
-                <span className="sm:underline underline-offset-10">Teams</span>
+                <h1 className="text-3xl font-bold text-left mb-6 sm:text-center">Kenali{" "}
+                <span className="sm:underline underline-offset-10">Tim Kami</span>
                 </h1>
-                <p className="sm:text-center">Say hello to the teams behind Sistem Manajemen Tiket JTE👋</p>
+                <p className="sm:text-center">Sapa tim di balik Sistem Manajemen Tiket JTE👋</p>
                 <TeamBento />
             </div>
 
             <div className="bg-[#5C5346] dark:bg-[#1A1A1A] min-h-screen flex flex-col justify-center items-center text-[#F9F6EE]">
-                <h1 className="text-3xl font-bold text-left mb-6 sm:text-center">Meet The{" "}
-                <span className="sm:underline underline-offset-10">Tech Stacks</span>
+                <h1 className="text-3xl font-bold text-left mb-6 sm:text-center">Teknologi{" "}
+                <span className="sm:underline underline-offset-10">Yang Digunakan</span>
                 </h1>
-                <p className="sm:text-center">The very building blocks of Sistem Manajemen Tiket JTE</p>
+                <p className="sm:text-center">Teknologi yang menjadi fondasi Sistem Manajemen Tiket JTE</p>
                 <div className="max-w-[75vw]">
                 <TechStacks />
                 </div>

@@ -117,7 +117,7 @@ export function RegisterForm() {
             <Input 
               type={passwordVisibility ? "text" : "password"}
               className="px-3.5 py-2.5"
-              placeholder="Masukkan password"
+              placeholder="Masukkan kata sandi"
               value={formData.password}
               onChange={(e) => handleInputChange('password', e.target.value)}
               required
@@ -129,13 +129,13 @@ export function RegisterForm() {
         </div>
         <div className="flex flex-col gap-1.5 md:w-1/2 w-full">
           <Label className="text-sm">
-            Konfirmasi Password
+            Konfirmasi Kata Sandi
           </Label>
           <div className="flex">
             <Input
               type={confirmPasswordVisibility ? "text" : "password"}
               className="px-3.5 py-2.5"
-              placeholder="Konfirmasi Password"
+              placeholder="Konfirmasi kata sandi"
               value={formData.password_confirmation}
               onChange={(e) => handleInputChange('password_confirmation', e.target.value)}
               required
