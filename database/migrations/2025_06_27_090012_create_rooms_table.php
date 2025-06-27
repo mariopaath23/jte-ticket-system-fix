@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('room_id')->unique();
             $table->string('name');
             $table->string('image_url')->nullable();
-            $table->string('status')->default('Available');
-            $table->integer('capacity')->nullable();
-            $table->string('location')->nullable();
-            $table->string('type')->nullable();
+            $table->enum('status', ['Available', 'In Use', 'Maintenance', 'Occupied'])->default('Available');
+            $table->integer('capacity');
+            $table->string('location');
+            $table->enum('type', ['low', 'medium', 'high']);
             $table->boolean('furniture_available')->default(false);
             $table->boolean('display_available')->default(false);
             $table->boolean('audio_available')->default(false);

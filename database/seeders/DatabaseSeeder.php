@@ -25,5 +25,10 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Admin', 'email' => 'admin@unsrat.ac.id', 'password' => bcrypt('password'), 'role' => 'admin'],
             ['name' => 'Student', 'email' => 'student@unsrat.ac.id', 'password' => bcrypt('password'), 'role' => 'student'],
         ]);
+
+        $this->call([
+            RoomSeeder::class,
+            InventorySeeder::class,
+        ]);
     }
 }
