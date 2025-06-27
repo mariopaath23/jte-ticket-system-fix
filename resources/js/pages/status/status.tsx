@@ -80,7 +80,7 @@ export default function statusPage(){
           <div className="overflow-y-auto w-full pb-4 pr-2 h-[calc(100vh-12rem)] sm:h-[calc(100vh-20rem)] mt-4 mb-4">
             {loading ? (
               <div className="flex justify-center items-center h-32">
-                <p>Loading infrastruktur...</p>
+                <p>Memuat infrastruktur...</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">

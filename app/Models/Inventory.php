@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Inventory extends Model
 {
@@ -32,5 +33,10 @@ class Inventory extends Model
     public function room()
     {
         return $this->belongsTo(Room::class, 'room_id', 'room_id');
+    }
+
+    public function borrowings(): MorphMany
+    {
+        return $this->morphMany(\App\Models\Borrowing::class, 'borrowable');
     }
 }

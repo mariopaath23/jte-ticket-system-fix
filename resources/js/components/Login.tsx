@@ -16,14 +16,14 @@ export default function Login(){
         <Button
           variant="outline"
         >
-          Login
+          Masuk
         </Button>
       </DialogTrigger>
       <DialogContent className="bg-white dark:bg-gray-900 h-auto sm:max-w-[680px] border border-gray-200 dark:border-gray-700">
         <div className="p-6 rounded text-gray-900 dark:text-gray-100">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold mb-6 text-center">
-              Login
+              Masuk
             </DialogTitle>
           </DialogHeader>
           <LoginForm />

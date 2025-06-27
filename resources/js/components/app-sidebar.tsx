@@ -4,8 +4,9 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, PlusCircle } from 'lucide-react';
 import AppLogo from './app-logo';
+import { usePage } from '@inertiajs/react';
 
 const mainNavItems: NavItem[] = [
     {
@@ -39,6 +40,19 @@ const footerNavItems: NavItem[] = [
 ];
 
 export function AppSidebar() {
+    const { role } = usePage().props as any;
+    const adminNavItems: NavItem[] = [
+        {
+            title: 'Tambah Ruangan',
+            href: '/catalog/rooms/create',
+            icon: PlusCircle,
+        },
+        {
+            title: 'Tambah Inventaris',
+            href: '/catalog/inventory/create',
+            icon: PlusCircle,
+        },
+    ];
     return (
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>
@@ -55,6 +69,7 @@ export function AppSidebar() {
 
             <SidebarContent>
                 <NavMain items={mainNavItems} />
+                {role === 'admin' && <NavMain items={adminNavItems} />}
             </SidebarContent>
 
             <SidebarFooter>

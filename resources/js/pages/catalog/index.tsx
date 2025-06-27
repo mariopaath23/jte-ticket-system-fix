@@ -120,12 +120,12 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
 
   return (
     <AppLayout breadcrumbs={breadcrumbs}>
-      <Head title="Catalog" />
+      <Head title="Katalog" />
       
       <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Catalog</h1>
-          <p className="text-gray-600">Browse rooms and inventory items</p>
+          <h1 className="text-3xl font-bold mb-2">Katalog</h1>
+          <p className="text-gray-600">Jelajahi ruangan dan item inventaris</p>
         </div>
 
         {/* Search and Filters */}
@@ -135,7 +135,7 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                 <Input
-                  placeholder="Search rooms and inventory..."
+                  placeholder="Cari ruangan dan inventaris..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
@@ -145,7 +145,7 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
             </div>
             <Select value={selectedCategory} onValueChange={setSelectedCategory}>
               <SelectTrigger className="w-full sm:w-48">
-                <SelectValue placeholder="All Categories" />
+                <SelectValue placeholder="Semua Kategori" />
               </SelectTrigger>
               <SelectContent>
                 {categories.map((category) => (
@@ -157,23 +157,23 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
             </Select>
             <Select value={selectedStatus} onValueChange={setSelectedStatus}>
               <SelectTrigger className="w-full sm:w-48">
-                <SelectValue placeholder="All Status" />
+                <SelectValue placeholder="Semua Status" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Available">Available</SelectItem>
-                <SelectItem value="Occupied">Occupied</SelectItem>
-                <SelectItem value="Maintenance">Maintenance</SelectItem>
+                <SelectItem value="Available">Tersedia</SelectItem>
+                <SelectItem value="Occupied">Terpakai</SelectItem>
+                <SelectItem value="Maintenance">Pemeliharaan</SelectItem>
               </SelectContent>
             </Select>
             <Button onClick={handleSearch} className="w-full sm:w-auto">
-              Search
+              Cari
             </Button>
             <Button 
               onClick={clearFilters} 
               variant="outline" 
               className="w-full sm:w-auto"
             >
-              Clear
+              Bersihkan
             </Button>
           </div>
         </div>
@@ -181,9 +181,9 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
         {/* Rooms Section */}
         <div className="mb-12">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold">Rooms ({rooms.total})</h2>
+            <h2 className="text-2xl font-semibold">Ruangan ({rooms.total})</h2>
             <Link href="/catalog/rooms" className="text-blue-600 hover:text-blue-800">
-              View All Rooms →
+              Lihat Semua Ruangan →
             </Link>
           </div>
           
@@ -196,7 +196,7 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
                       <CardTitle className="text-lg">{room.name}</CardTitle>
                       <CardDescription className="flex items-center gap-1 mt-1">
                         <MapPin className="h-4 w-4" />
-                        {room.location || 'No location specified'}
+                        {room.location || 'Lokasi tidak ditentukan'}
                       </CardDescription>
                     </div>
                     <Badge className={getStatusColor(room.status)}>
@@ -207,20 +207,20 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
                 <CardContent>
                   <div className="space-y-2">
                     {room.type && (
-                      <p className="text-sm text-gray-600">Type: {room.type}</p>
+                      <p className="text-sm text-gray-600">Tipe: {room.type}</p>
                     )}
                     {room.capacity && (
                       <p className="text-sm text-gray-600 flex items-center gap-1">
                         <Users className="h-4 w-4" />
-                        Capacity: {room.capacity}
+                        Kapasitas: {room.capacity}
                       </p>
                     )}
                     <div className="flex flex-wrap gap-1 mt-3">
                       {room.furniture_available && (
-                        <Badge variant="secondary" className="text-xs">Furniture</Badge>
+                        <Badge variant="secondary" className="text-xs">Furnitur</Badge>
                       )}
                       {room.display_available && (
-                        <Badge variant="secondary" className="text-xs">Display</Badge>
+                        <Badge variant="secondary" className="text-xs">Layar</Badge>
                       )}
                       {room.audio_available && (
                         <Badge variant="secondary" className="text-xs">Audio</Badge>
@@ -234,7 +234,7 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
                     href={`/catalog/rooms/${room.room_id}`}
                     className="mt-4 inline-block text-blue-600 hover:text-blue-800 text-sm font-medium"
                   >
-                    View Details →
+                    Lihat Detail →
                   </Link>
                 </CardContent>
               </Card>
@@ -245,9 +245,9 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
         {/* Inventory Section */}
         <div className="mb-12">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold">Inventory ({inventories.total})</h2>
+            <h2 className="text-2xl font-semibold">Inventaris ({inventories.total})</h2>
             <Link href="/catalog/inventory" className="text-blue-600 hover:text-blue-800">
-              View All Inventory →
+              Lihat Semua Inventaris →
             </Link>
           </div>
           
@@ -282,12 +282,12 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
                     )}
                     {item.room && (
                       <p className="text-sm text-gray-600">
-                        Room: {item.room.name}
+                        Ruangan: {item.room.name}
                       </p>
                     )}
                     {item.purchase_price && (
                       <p className="text-sm text-gray-600">
-                        Price: ${item.purchase_price}
+                        Harga: ${item.purchase_price}
                       </p>
                     )}
                   </div>
@@ -295,7 +295,7 @@ export default function CatalogIndex({ rooms, inventories, categories, filters }
                     href={`/catalog/inventory/${item.item_id}`}
                     className="mt-4 inline-block text-blue-600 hover:text-blue-800 text-sm font-medium"
                   >
-                    View Details →
+                    Lihat Detail →
                   </Link>
                 </CardContent>
               </Card>

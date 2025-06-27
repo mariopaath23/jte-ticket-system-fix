@@ -10,7 +10,7 @@ export default function TechStacks(){
             height={200}
           />
         </div>
-        <p>Powerful Web Development Framework with Server-side Rendering Capabilities</p>
+        <p>Framework Pengembangan Web yang Kuat dengan Kemampuan Server-side Rendering</p>
       </div>
       <div className="flex flex-col items-center justify-center gap-4 max-w-60 h-[300px] text-[#5C5346] bg-[#F9F6EE] rounded-lg shadow-md p-4">
         <div className="flex items-center max-w-[200px] h-[150px] ">
@@ -21,7 +21,7 @@ export default function TechStacks(){
             height={200}
           />
         </div>
-        <p>A Utility-first, mobile-first CSS Framework</p>
+        <p>Framework CSS Utility-first dan Mobile-first</p>
       </div>
       <div className="flex flex-col items-center justify-center gap-4 max-w-60 h-[300px] text-[#5C5346] bg-[#F9F6EE] rounded-lg shadow-md p-4">
         <div className="flex items-center max-w-[200px] h-[150px] ">
@@ -34,7 +34,7 @@ export default function TechStacks(){
           />
           <span className="font-bold">shadcn/ui</span>
         </div>
-        <p>Build-your-own UI Component Library</p>
+        <p>Perpustakaan Komponen UI yang Dapat Dikustomisasi</p>
       </div>
       <div className="flex flex-col items-center justify-center gap-4 max-w-60 h-[300px] text-[#5C5346] bg-[#F9F6EE] rounded-lg shadow-md p-4">
         <div className="flex items-center max-w-[200px] h-[150px] ">

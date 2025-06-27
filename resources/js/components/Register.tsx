@@ -14,14 +14,14 @@ export default function Register(){
     <Dialog>
       <DialogTrigger asChild>
         <Button>
-          Register
+          Daftar
         </Button>
       </DialogTrigger>
       <DialogContent className="bg-white h-auto sm:max-w-[680px]">
         <div className="p-6 rounded">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold mb-6 text-center">
-              Register
+              Daftar
             </DialogTitle>
           </DialogHeader>
           <RegisterForm />

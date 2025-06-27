@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Head, Link, router } from '@inertiajs/react';
+import { Head, Link, router, usePage } from '@inertiajs/react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import { Search, MapPin, DollarSign, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, MapPin, DollarSign, ArrowLeft, ChevronLeft, ChevronRight, Plus } from 'lucide-react';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 
@@ -66,6 +66,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Inventory({ inventories, categories, filters }: InventoryProps) {
+  const { role } = usePage().props as any;
   const [searchQuery, setSearchQuery] = useState(filters.query || '');
   const [selectedCategory, setSelectedCategory] = useState(filters.category || '');
   const [selectedStatus, setSelectedStatus] = useState(filters.status || '');
@@ -129,8 +130,20 @@ export default function Inventory({ inventories, categories, filters }: Inventor
             <ArrowLeft className="h-4 w-4" />
             Back to Catalog
           </Link>
-          <h1 className="text-3xl font-bold mb-2">Inventory Catalog</h1>
-          <p className="text-gray-600">Browse and search through all inventory items</p>
+          <div className="flex justify-between items-center mb-4">
+            <div>
+              <h1 className="text-3xl font-bold mb-2">Inventory Catalog</h1>
+              <p className="text-gray-600">Browse and search through all inventory items</p>
+            </div>
+            {role === 'admin' && (
+              <Button asChild>
+                <Link href="/catalog/inventory/create">
+                  <Plus className="h-4 w-4 mr-2" />
+                  Tambah Inventaris
+                </Link>
+              </Button>
+            )}
+          </div>
         </div>
 
         {/* Search and Filters */}
