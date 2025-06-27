@@ -19,11 +19,12 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'nim_nip' => (string) random_int(100000, 999999),
         ]);
 
         DB::table('users')->insert([
-            ['name' => 'Admin', 'email' => 'admin@unsrat.ac.id', 'password' => bcrypt('password'), 'role' => 'admin'],
-            ['name' => 'Student', 'email' => 'student@unsrat.ac.id', 'password' => bcrypt('password'), 'role' => 'student'],
+            ['name' => 'Admin', 'email' => 'admin@unsrat.ac.id', 'password' => bcrypt('password'), 'role' => 'admin', 'nim_nip' => (string) random_int(100000, 999999)],
+            ['name' => 'Student', 'email' => 'student@unsrat.ac.id', 'password' => bcrypt('password'), 'role' => 'student', 'nim_nip' => (string) random_int(100000, 999999)],
         ]);
 
         $this->call([
