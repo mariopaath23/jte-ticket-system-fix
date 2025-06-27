@@ -157,3 +157,64 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* Custom styles for auth forms in dark mode - only input fields are dark */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"] {
+    background-color: rgb(55 65 81) !important; /* gray-700 */
+    color: rgb(255 255 255) !important; /* white */
+    border-color: rgb(75 85 99) !important; /* gray-600 */
+}
+
+.dark input[type="text"]::placeholder,
+.dark input[type="email"]::placeholder,
+.dark input[type="password"]::placeholder {
+    color: rgb(156 163 175) !important; /* gray-400 */
+}
+
+/* Make labels black in dark mode for better visibility */
+.dark label {
+    color: rgb(0 0 0) !important; /* black */
+}
+
+/* Make titles and descriptions black in dark mode for better visibility */
+.dark h1.text-xl.font-medium {
+    color: rgb(0 0 0) !important; /* black */
+}
+
+.dark p.text-center.text-sm {
+    color: rgb(0 0 0) !important; /* black */
+}
+
+/* Force all text in auth form to be black in dark mode */
+.dark .bg-white.dark\\:bg-gray-800 h1,
+.dark .bg-white.dark\\:bg-gray-800 p,
+.dark .bg-white.dark\\:bg-gray-800 label,
+.dark .bg-white.dark\\:bg-gray-800 div.text-center {
+    color: rgb(0 0 0) !important; /* black */
+}
+
+/* Additional specificity for auth form text */
+.dark .bg-gray-800 h1,
+.dark .bg-gray-800 p,
+.dark .bg-gray-800 label,
+.dark .bg-gray-800 div {
+    color: rgb(0 0 0) !important; /* black */
+}
+
+/* Specific styling for auth form dark mode */
+.dark .auth-form-dark h1,
+.dark .auth-form-dark p,
+.dark .auth-form-dark label,
+.dark .auth-form-dark div {
+    color: rgb(0 0 0) !important; /* black */
+}
+
+.dark .auth-title {
+    color: rgb(0 0 0) !important; /* black */
+}
+
+.dark .auth-description {
+    color: rgb(0 0 0) !important; /* black */
+}

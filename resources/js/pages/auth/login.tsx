@@ -9,6 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
+import AppearanceToggleDropdown from '@/components/appearance-dropdown';
 
 type LoginForm = {
     email: string;
@@ -39,7 +40,12 @@ export default function Login({ status, canResetPassword }: LoginProps) {
         <AuthLayout title="Masuk ke akun Anda" description="Masukkan email dan kata sandi Anda di bawah ini untuk masuk">
             <Head title="Masuk" />
 
-            <form className="flex flex-col gap-6" onSubmit={submit}>
+            {/* Theme Toggle Button */}
+            <div className="absolute top-4 right-4">
+                <AppearanceToggleDropdown />
+            </div>
+
+            <form className="flex flex-col gap-6 auth-form-dark" onSubmit={submit}>
                 <div className="grid gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Alamat Email</Label>
@@ -96,7 +102,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                     </Button>
                 </div>
 
-                <div className="text-center text-sm text-muted-foreground">
+                <div className="text-center text-sm text-gray-600 dark:text-black">
                     Belum punya akun?{' '}
                     <TextLink href={route('register')} tabIndex={5}>
                         Daftar
